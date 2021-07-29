@@ -16,7 +16,7 @@ class Harviacode
 
     function connection()
     {
-        $subject = file_get_contents('../application/config/database.php');
+        $subject = file_get_contents('../../application/config/database.php');
         $string = str_replace("defined('BASEPATH') OR exit('No direct script access allowed');", "", $subject);
         
         $con = 'core/connection.php';

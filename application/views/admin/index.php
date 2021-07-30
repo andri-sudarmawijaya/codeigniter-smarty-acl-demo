@@ -286,7 +286,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="/logout"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -673,7 +673,7 @@
                             </li>
                         <?php endif; ?>
                         <li>
-                            <a href="/admin/admins">
+                            <a href="/logout">
                                 <i class="material-icons col-light-red">donut_large</i>
                                 <span>Logout</span>
                             </a>

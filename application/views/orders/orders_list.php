@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Blank Page | Bootstrap Based Admin Template - Material Design</title>
+    <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
 
@@ -20,6 +20,9 @@
 
     <!-- Animation Css -->
     <link href="/assets/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="/assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom Css -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -275,8 +278,8 @@
                     <img src="/assets/images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->smarty_acl->get_admin()['name']; ?></div>
-                    <div class="email"><?php echo $this->smarty_acl->get_admin()['group_name']; ?></div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                    <div class="email">john.doe@example.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -286,7 +289,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="/logout"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -297,7 +300,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li>
-                        <a href="/">
+                        <a href="/assets/index.html">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -464,7 +467,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Tables</span>
@@ -473,7 +476,7 @@
                             <li>
                                 <a href="/assets/pages/tables/normal-tables.html">Normal Tables</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="/assets/pages/tables/jquery-datatable.html">Jquery Datatables</a>
                             </li>
                             <li>
@@ -518,7 +521,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">content_copy</i>
                             <span>Example Pages</span>
@@ -533,7 +536,7 @@
                             <li>
                                 <a href="/assets/pages/examples/forgot-password.html">Forgot Password</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="/assets/pages/examples/blank.html">Blank Page</a>
                             </li>
                             <li>
@@ -609,81 +612,25 @@
                             <span>Changelogs</span>
                         </a>
                     </li>
-                    <li class="header">USER</li>
-                    <?php if ($this->smarty_acl->logged_in(FALSE)): ?>
-                        <li>
-                            <a href="/account">
-                                <i class="material-icons col-green">donut_large</i>
-                                <span>Account</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/register">
-                                <i class="material-icons col-grey">donut_large</i>
-                                <span>Register</span>
-                            </a>
-                        </li>
-                    <?php else: ?>
-                        <li>
-                            <a href="/login">
-                                <i class="material-icons col-blue">donut_large</i>
-                                <span>Login</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/logout">
-                                <i class="material-icons col-red">donut_large</i>
-                                <span>Logout</span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if ($this->smarty_acl->logged_in()): ?>
-                        <li class="header">ADMIN</li>
-                        <?php if ($this->smarty_acl->module_authorized('users')): ?>
-                            <li>
-                                <a href="/admin/users">
-                                    <i class="material-icons col-red">donut_large</i>
-                                    <span>Users</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                
-                        <?php if ($this->smarty_acl->module_authorized('roles')): ?>
-                            <li>
-                                <a href="/admin/roles">
-                                    <i class="material-icons col-amber">donut_large</i>
-                                    <span>Roles</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ($this->smarty_acl->module_authorized('modules')): ?>
-                            <li>
-                                <a href="/admin/modules">
-                                    <i class="material-icons col-light-blue">donut_large</i>
-                                    <span>Modules</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ($this->smarty_acl->module_authorized('admins')): ?>
-                            <li>
-                                <a href="/admin/admins">
-                                    <i class="material-icons col-light-green">donut_large</i>
-                                    <span>Admins</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <li>
-                            <a href="/logout">
-                                <i class="material-icons col-light-red">donut_large</i>
-                                <span>Logout</span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-
-
-
-
-
+                    <li class="header">LABELS</li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-red">donut_large</i>
+                            <span>Important</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-amber">donut_large</i>
+                            <span>Warning</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-light-blue">donut_large</i>
+                            <span>Information</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->
@@ -847,8 +794,54 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>BLANK PAGE</h2>
+                <h2>
+                    <?php echo $title; ?>
+                    <small>Terakhir diupdate : <?php echo $last_update; ?></small>
+                </h2>
             </div>
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                             <?php echo $title; ?>
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped" id="mytable">
+                                    <thead>
+                                        <tr>
+                                            <th width="80px">No</th>
+                                            <th>OrderDate</th>
+                                            <th>RequiredDate</th>
+                                            <th>ShippedDate</th>
+                                            <th>Status</th>
+                                            <th>Comments</th>
+                                            <th>CustomerNumber</th>
+                                            <th width="200px">Action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Exportable Table -->
         </div>
     </section>
 
@@ -867,11 +860,79 @@
     <!-- Waves Effect Plugin Js -->
     <script src="/assets/plugins/node-waves/waves.js"></script>
 
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="/assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="/assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="/assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
     <!-- Custom Js -->
     <script src="/assets/js/admin.js"></script>
+    <script src="/assets/js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
     <script src="/assets/js/demo.js"></script>
-</body>
+        <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
+                {
+                    return {
+                        "iStart": oSettings._iDisplayStart,
+                        "iEnd": oSettings.fnDisplayEnd(),
+                        "iLength": oSettings._iDisplayLength,
+                        "iTotal": oSettings.fnRecordsTotal(),
+                        "iFilteredTotal": oSettings.fnRecordsDisplay(),
+                        "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+                        "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+                    };
+                };
 
+                var t = $("#mytable").dataTable({
+                    initComplete: function() {
+                        var api = this.api();
+                        $('#mytable_filter input')
+                                .off('.DT')
+                                .on('keyup.DT', function(e) {
+                                    if (e.keyCode == 13) {
+                                        api.search(this.value).draw();
+                            }
+                        });
+                    },
+                    oLanguage: {
+                        sProcessing: "loading..."
+                    },
+                    processing: true,
+                    serverSide: true,
+                    ajax: {"url": "orders/json", "type": "POST"},
+                    columns: [
+                        {
+                            "data": "orderNumber",
+                            "orderable": false
+                        },{"data": "orderDate"},{"data": "requiredDate"},{"data": "shippedDate"},{"data": "status"},{"data": "comments"},{"data": "customerNumber"},
+                        {
+                            "data" : "action",
+                            "orderable": false,
+                            "className" : "text-center"
+                        }
+                    ],
+                    order: [[0, 'desc']],
+                    rowCallback: function(row, data, iDisplayIndex) {
+                        var info = this.fnPagingInfo();
+                        var page = info.iPage;
+                        var length = info.iLength;
+                        var index = page * length + (iDisplayIndex + 1);
+                        $('td:eq(0)', row).html(index);
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>

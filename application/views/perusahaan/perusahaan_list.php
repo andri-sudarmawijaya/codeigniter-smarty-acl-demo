@@ -826,15 +826,13 @@
                                     <thead>
                                         <tr>
                                             <th width="80px">No</th>
-                                            <th>OrderDate</th>
-                                            <th>RequiredDate</th>
-                                            <th>ShippedDate</th>
-                                            <th>Status</th>
-                                            <th>Comments</th>
-                                            <th>CustomerNumber</th>
+                                            <th>Nama Perusahaan</th>
+                                            <th>Alamat Kantor</th>
+                                            <th>Alamat Plant</th>
                                             <th width="200px">Action</th>
                                         </tr>
                                     </thead>
+                                
                                 </table>
                             </div>
                         </div>
@@ -846,7 +844,8 @@
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="/assets/plugins/jquery/jquery.min.js"></script>
+
+    <script src="assets/plugins/jquery/jquery-1.11.2.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="/assets/plugins/bootstrap/js/bootstrap.js"></script>
@@ -861,8 +860,12 @@
     <script src="/assets/plugins/node-waves/waves.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
-    <script src="/assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="/assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+        <script src="<?php echo base_url('') ?>"></script>
+        <script src="<?php echo base_url('') ?>"></script>
+        
+    <script src="/assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+
     <script src="/assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="/assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
     <script src="/assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
@@ -873,12 +876,11 @@
 
     <!-- Custom Js -->
     <script src="/assets/js/admin.js"></script>
-    <script src="/assets/js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
     <script src="/assets/js/demo.js"></script>
-    
-        <script type="text/javascript">
+
+    <script type="text/javascript">
             $(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
                 {
@@ -909,12 +911,12 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "orders/json", "type": "POST"},
+                    ajax: {"url": "perusahaan/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "orderNumber",
+                            "data": "id",
                             "orderable": false
-                        },{"data": "orderDate"},{"data": "requiredDate"},{"data": "shippedDate"},{"data": "status"},{"data": "comments"},{"data": "customerNumber"},
+                        },{"data": "nama_perusahaan"},{"data": "alamat_kantor"},{"data": "alamat_plant"},
                         {
                             "data" : "action",
                             "orderable": false,

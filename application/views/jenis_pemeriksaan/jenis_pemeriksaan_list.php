@@ -826,12 +826,9 @@
                                     <thead>
                                         <tr>
                                             <th width="80px">No</th>
-                                            <th>OrderDate</th>
-                                            <th>RequiredDate</th>
-                                            <th>ShippedDate</th>
-                                            <th>Status</th>
-                                            <th>Comments</th>
-                                            <th>CustomerNumber</th>
+                                            <th>Nama Jenis Pemeriksaan</th>
+                                            <th>Header Jenis Pemeriksaan</th>
+                                            <th>Kop Jenis Pemeriksaan</th>
                                             <th width="200px">Action</th>
                                         </tr>
                                     </thead>
@@ -877,6 +874,9 @@
 
     <!-- Demo Js -->
     <script src="/assets/js/demo.js"></script>
+        <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
     
         <script type="text/javascript">
             $(document).ready(function() {
@@ -909,12 +909,12 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "orders/json", "type": "POST"},
+                    ajax: {"url": "jenis_pemeriksaan/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "orderNumber",
+                            "data": "id",
                             "orderable": false
-                        },{"data": "orderDate"},{"data": "requiredDate"},{"data": "shippedDate"},{"data": "status"},{"data": "comments"},{"data": "customerNumber"},
+                        },{"data": "nama_jenis_pemeriksaan"},{"data": "header_jenis_pemeriksaan"},{"data": "kop_jenis_pemeriksaan"},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -934,3 +934,4 @@
         </script>
     </body>
 </html>
+

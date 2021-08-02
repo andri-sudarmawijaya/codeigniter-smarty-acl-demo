@@ -826,15 +826,19 @@
                                     <thead>
                                         <tr>
                                             <th width="80px">No</th>
-                                            <th>OrderDate</th>
-                                            <th>RequiredDate</th>
-                                            <th>ShippedDate</th>
-                                            <th>Status</th>
-                                            <th>Comments</th>
-                                            <th>CustomerNumber</th>
+                                            <th>Nomor Suket</th>
+                                            <th>Nomor BPR</th>
+                                            <th>Tanggal Penerbitan</th>
+                                            <th>Jenis Pesawat</th>
+                                            <th>Nama Alat</th>
+                                            <th>Jenis Pemeriksaan</th>
+                                            <th>Nama Perusahaan</th>
+                                            <th>Tanggal Suket</th>
+                                            <th>Periksa Kembali</th>
                                             <th width="200px">Action</th>
                                         </tr>
                                     </thead>
+                                
                                 </table>
                             </div>
                         </div>
@@ -877,7 +881,11 @@
 
     <!-- Demo Js -->
     <script src="/assets/js/demo.js"></script>
+        <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
     
+        
         <script type="text/javascript">
             $(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
@@ -909,12 +917,12 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "orders/json", "type": "POST"},
+                    ajax: {"url": "suket/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "orderNumber",
+                            "data": "id",
                             "orderable": false
-                        },{"data": "orderDate"},{"data": "requiredDate"},{"data": "shippedDate"},{"data": "status"},{"data": "comments"},{"data": "customerNumber"},
+                        },{"data": "nomor_suket"},{"data": "suket_bapr_no"},{"data": "tanggal_penerbitan"},{"data": "jenis_pesawat"},{"data": "nama_alat"},{"data": "suket_jenis_pemeriksaan"},{"data": "suket_nama_perusahaan"},{"data": "tanggal_suket"},{"data": "suket_riksa_kembali"},
                         {
                             "data" : "action",
                             "orderable": false,

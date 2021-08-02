@@ -826,15 +826,17 @@
                                     <thead>
                                         <tr>
                                             <th width="80px">No</th>
-                                            <th>OrderDate</th>
-                                            <th>RequiredDate</th>
-                                            <th>ShippedDate</th>
-                                            <th>Status</th>
-                                            <th>Comments</th>
-                                            <th>CustomerNumber</th>
+                                            <th>Nomor BAPR</th>
+                                            <th>Nomor SPD</th>
+                                            <th>Tanggal</th>
+                                            <th>Lokasi Objek</th>
+                                            <th>Nama Alat</th>
+                                            <th>Serie</th>
+                                            <th>Nomor Unit</th>
                                             <th width="200px">Action</th>
                                         </tr>
                                     </thead>
+                                
                                 </table>
                             </div>
                         </div>
@@ -877,6 +879,9 @@
 
     <!-- Demo Js -->
     <script src="/assets/js/demo.js"></script>
+        <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
     
         <script type="text/javascript">
             $(document).ready(function() {
@@ -909,12 +914,12 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "orders/json", "type": "POST"},
+                    ajax: {"url": "bapr/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "orderNumber",
+                            "data": "id",
                             "orderable": false
-                        },{"data": "orderDate"},{"data": "requiredDate"},{"data": "shippedDate"},{"data": "status"},{"data": "comments"},{"data": "customerNumber"},
+                        },{"data": "bapr_no"},{"data": "bapr_spd_no"},{"data": "bapr_tanggal"},{"data": "lokasi_objek"},{"data": "bapr_nama_alat"},{"data": "serie"},{"data": "nomor_unit"},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -932,5 +937,57 @@
                 });
             });
         </script>
+    </body>
+</html>
+
+
+<!doctype html>
+<html>
+    <head>
+        <title>harviacode.com - codeigniter crud generator</title>
+        <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
+        <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
+        <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
+        <style>
+            .dataTables_wrapper {
+                min-height: 500px
+            }
+            
+            .dataTables_processing {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                margin-left: -50%;
+                margin-top: -25px;
+                padding-top: 20px;
+                text-align: center;
+                font-size: 1.2em;
+                color:grey;
+            }
+            body{
+                padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row" style="margin-bottom: 10px">
+            <div class="col-md-4">
+                <h2 style="margin-top:0px">Bapr List</h2>
+            </div>
+            <div class="col-md-4 text-center">
+                <div style="margin-top: 4px"  id="message">
+                    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+                </div>
+            </div>
+            <div class="col-md-4 text-right">
+                <?php echo anchor(site_url('bapr/create'), 'Create', 'class="btn btn-primary"'); ?>
+		<?php echo anchor(site_url('bapr/excel'), 'Excel', 'class="btn btn-primary"'); ?>
+		<?php echo anchor(site_url('bapr/word'), 'Word', 'class="btn btn-primary"'); ?>
+	    </div>
+        </div>
+        <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+        <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
     </body>
 </html>

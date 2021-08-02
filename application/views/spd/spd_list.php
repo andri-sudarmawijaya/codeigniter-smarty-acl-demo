@@ -822,16 +822,18 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped" id="mytable">
+                                <table class="table table-bordered table-striped" id="SpdTable">
                                     <thead>
                                         <tr>
                                             <th width="80px">No</th>
-                                            <th>OrderDate</th>
-                                            <th>RequiredDate</th>
-                                            <th>ShippedDate</th>
-                                            <th>Status</th>
-                                            <th>Comments</th>
-                                            <th>CustomerNumber</th>
+                                            <th>Nomor SPD</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Perusahaan</th>
+                                            <th>Hari Mulai</th>
+                                            <th>Tanggal Mulai</th>
+                                            <th>Hari Selesai</th>
+                                            <th>Tanggal Selesai</th>
+                                            <th>Jumlah10</th>
                                             <th width="200px">Action</th>
                                         </tr>
                                     </thead>
@@ -846,7 +848,8 @@
     </section>
 
     <!-- Jquery Core Js -->
-    <script src="/assets/plugins/jquery/jquery.min.js"></script>
+
+    <script src="assets/plugins/jquery/jquery-1.11.2.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="/assets/plugins/bootstrap/js/bootstrap.js"></script>
@@ -861,8 +864,12 @@
     <script src="/assets/plugins/node-waves/waves.js"></script>
 
     <!-- Jquery DataTable Plugin Js -->
-    <script src="/assets/plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="/assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+        <script src="<?php echo base_url('') ?>"></script>
+        <script src="<?php echo base_url('') ?>"></script>
+        
+    <script src="/assets/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+
     <script src="/assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
     <script src="/assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
     <script src="/assets/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
@@ -873,11 +880,11 @@
 
     <!-- Custom Js -->
     <script src="/assets/js/admin.js"></script>
-    <script src="/assets/js/pages/tables/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
     <script src="/assets/js/demo.js"></script>
-    
+
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
@@ -893,10 +900,10 @@
                     };
                 };
 
-                var t = $("#mytable").dataTable({
+                var t = $("#SpdTable").dataTable({
                     initComplete: function() {
                         var api = this.api();
-                        $('#mytable_filter input')
+                        $('#SpdTable_filter input')
                                 .off('.DT')
                                 .on('keyup.DT', function(e) {
                                     if (e.keyCode == 13) {
@@ -909,12 +916,12 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "orders/json", "type": "POST"},
+                    ajax: {"url": "spd/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "orderNumber",
+                            "data": "id",
                             "orderable": false
-                        },{"data": "orderDate"},{"data": "requiredDate"},{"data": "shippedDate"},{"data": "status"},{"data": "comments"},{"data": "customerNumber"},
+                        },{"data": "spd_no"},{"data": "spd_tanggal"},{"data": "spd_nama_perusahaan"},{"data": "spd_hari_mulai"},{"data": "spd_tanggal_mulai"},{"data": "spd_hari_selesai"},{"data": "spd_tanggal_selesai"},{"data": "jumlah10"},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -931,6 +938,7 @@
                     }
                 });
             });
-        </script>
+        </script>        
     </body>
 </html>
+

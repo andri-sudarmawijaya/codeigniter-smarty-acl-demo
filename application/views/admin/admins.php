@@ -1,17 +1,46 @@
-<?php $this->load->view('header'); ?>
+<?php $this->load->view('_layouts/header'); ?>
+<?php $this->load->view('_layouts/navbar'); ?>
+<?php $this->load->view('_layouts/sidebar'); ?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header clearfix">
-                        <h5 class="float-left">Manage Admins</h5>
-                        <div class="float-right">
-                            <a href="<?php echo base_url($URI.'/create'); ?>" class="btn btn-success btn-sm"> Create</a>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header clearfix">
+                            <h2>    
+                                <?php echo 'Manage Admin'; ?>
+                            </h2>
+                            <small>Terakhir diupdate : <?php echo '2021-02-11'; ?></small>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <div class="tables-responsive">
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header clearfix">
+                        
+                            <div class="float-left clearfix">
+                                <a href="<?php echo base_url($URI.'/create'); ?>" class="btn btn-success btn-sm"> Create</a>
+                            </div>
+
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
@@ -45,11 +74,12 @@
                                 <?php endif; ?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-<?php $this->load->view('footer'); ?>
+<?php $this->load->view('_layouts/footer'); ?>
